@@ -2,37 +2,96 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.center{
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-left: 950px;
+  padding-top: 5px;
+  padding-left: 2px;
+  padding-bottom: 5px;
+  padding-right: 1px;
+  color: white;
+}
+.dark-mode {
+  background-color: #333;
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.light-mode {
+
+  color: #333;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.weather-card-container {
+  display: flex;
+}
+
+.add-city-card {
+
+text-align: center;}
+
+
+/* Container for the cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Space between the cards */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1); /* Light background to emphasize the glassy effect */
+}
+
+/* Individual card styles */
+.card {
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  backdrop-filter: blur(10px); /* Blur effect for the glassy look */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  padding: 20px;
+  width: 250px; /* Fixed width for the cards */
+  height: 300px; /* Fixed height for the cards */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Rounded corners for images */
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+  color: #fff; /* White text color */
+}
+
+.card p {
+  color: #fff; /* White text color */
+  text-align: center;
+}
+
+@media (min-width: 380px) {
+  .center {
+     background-color: green;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  margin-left: 550px;
+  padding-top: 5px;
+  padding-left: 2px;
+  padding-bottom: 5px;
+  padding-right: 1px;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
   }
-}
