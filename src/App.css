@@ -2,18 +2,20 @@
   text-align: center;
 }
 
-.center{
+.center {
   background-color: green;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 5px;
-  margin-left: 950px;
-  padding-top: 5px;
-  padding-left: 2px;
-  padding-bottom: 5px;
-  padding-right: 1px;
+  padding: 5px 10px;
   color: white;
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  margin-top: 10px;
 }
+
 .dark-mode {
   background-color: #333;
   color: #fff;
@@ -45,9 +47,10 @@ text-align: center;}
 
 /* Individual card styles */
 .card {
-  background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+   background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+   /* Semi-transparent white background */
   border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; /* Soft shadow for depth */
   backdrop-filter: blur(10px); /* Blur effect for the glassy look */
   -webkit-backdrop-filter: blur(10px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
@@ -72,6 +75,8 @@ text-align: center;}
 }
 
 .card h3 {
+  height: 100%;
+  width: 100%;
   margin: 10px 0 5px;
   color: #fff; /* White text color */
 }
@@ -81,17 +86,11 @@ text-align: center;}
   text-align: center;
 }
 
-@media (min-width: 380px) {
+@media (max-width: 600px) {
   .center {
-     background-color: green;
-  display: flex;
-  flex-direction: row;
-  border-radius: 5px;
-  margin-left: 550px;
-  padding-top: 5px;
-  padding-left: 2px;
-  padding-bottom: 5px;
-  padding-right: 1px;
-  color: white;
+    top: 5px; /* Adjust for smaller screens */
+    right: 5px; /* Adjust for smaller screens */
+    padding: 5px; /* Less padding on smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
-  }
+}

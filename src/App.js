@@ -8,18 +8,35 @@ function App() {
   const [weatherData, setWeatherData] = useState([]);
   const [darkMode, setDarkMode] = useState();
 
-  const fetchWeatherByCity = (city) => {
+  const deleteWeatherCard = (indexToDelete) => {
+    if (window.confirm("Do you want to delete?")) {
+      setWeatherData(weatherData.filter((data, idx) => idx !== indexToDelete));
+    }
+  };
+
+  const handleRefresh = index => {
+    fetchWeatherByCity(weatherData[index].name, true, index)
+  }
+
+  const fetchWeatherByCity = (city, isRefresh, index) => {
     if (!city) return;
     fetch(`${OPEN_WEATHER_API}&q=${city}`)
       .then((data) => data.json())
       .then((data) => {
-
-        console.log(data)
+        console.log(data);
         if (data.cod !== 200) {
           alert("Error: " + data.message);
           return;
         }
-        setWeatherData((previousState) => [...previousState, data]);
+
+        data.updatedAt = new Date()
+        const newWeatherData = [...weatherData];
+        if(isRefresh) {
+          newWeatherData[index] = data
+        } else {        
+          newWeatherData.push(data)
+        }
+        setWeatherData(newWeatherData);
       });
   };
 
@@ -33,15 +50,19 @@ function App() {
     <div className={themeClass}>
       <h1 className="weather-heading">WeatherApp</h1>
       <button className="center" onClick={toggleDarkMode}>
-        {darkMode ? "Light Mode" : "Dark Mode"} 
+        {darkMode ? "Light Mode" : "Dark Mode"}
       </button>
       <div className="weather-card-container cards-container">
-
-      {weatherData.map((data) => (
-        <WeatherCard key={data} data={data} 
-         />
-      ))}
-      <AddCityCard onSearch={fetchWeatherByCity} />
+        {weatherData.map((data, index) => (
+          <WeatherCard
+            key={data.id}
+            data={data}
+            onDelete={deleteWeatherCard}
+            index={index}
+            handleRefresh={handleRefresh}
+          />
+        ))}
+        <AddCityCard onSearch={fetchWeatherByCity} />
       </div>
     </div>
   );

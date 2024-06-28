@@ -3,15 +3,21 @@ import { useState } from "react";
 export function AddCityCard({onSearch}) {
 
     const [city, setCity] = useState("");
-  const handleSearch = () => {
+  
+  
+    const handleSearch = () => {
     if(!city) return
+
+
     onSearch(city);
 
     //console.log("Clicked")
   };
   
+  
 
   return <div className="card add-city-card">
+    
     <div>
 
       <input
@@ -27,7 +33,7 @@ export function AddCityCard({onSearch}) {
       <button class="get-button" onClick={handleSearch}>
         Get Weather
       </button>
-    
+      
         </div>
     </div>
 }

@@ -55,3 +55,11 @@
   background-color: yellow;
   color: black;
 }
+.delete-button{
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: yellow;
+  color: black;
+  margin-left: 5px;
+}
